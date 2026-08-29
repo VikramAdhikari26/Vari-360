@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { Header } from "@/components/layout/Header";
 import { MobileNav } from "@/components/layout/MobileNav";
+import { NammaAI } from "@/components/NammaAI";
 import { Sidebar } from "@/components/layout/Sidebar";
 
 export function AppShell({ children }: { children: ReactNode }) {
@@ -24,6 +25,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       </div>
 
       <MobileNav />
+      <NammaAI />
     </div>
   );
 }

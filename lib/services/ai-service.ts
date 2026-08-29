@@ -29,6 +29,22 @@ export async function askVari(message: string) {
     };
   }
 
+  if (lower.includes("grievance") || lower.includes("complaint")) {
+    return {
+      answer:
+        "You can use the Grievance Assistant to identify the issue, check the required documents and generate a grievance description.",
+      source: "Grievance guidance",
+    };
+  }
+
+  if (lower.includes("explain") || lower.includes("tax")) {
+    return {
+      answer:
+        "Your tax is calculated from the property's built-up area, annual rental value, zone rate and applicable civic charges. Open Tax Breakdown to see how each component contributes to the total.",
+      source: "Tax breakdown",
+    };
+  }
+
   if (lower.includes("document") || lower.includes("need")) {
     return {
       answer:
@@ -42,4 +58,9 @@ export async function askVari(message: string) {
       "I reviewed the current property record and the increase is linked to reassessed built-up area and updated tax rate. You can compare the documents and submit a grievance if the assessment does not match the approved records.",
     source: "Property analysis",
   };
+}
+
+export async function sendChatMessage(message: string) {
+  // Keep response generation behind one async boundary so an API can replace the MVP later.
+  return askVari(message);
 }
